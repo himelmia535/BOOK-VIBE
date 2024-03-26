@@ -5,12 +5,30 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Home from './pages/Home';
+import MainLayout from './layouts/MainLayout';
+import Listedbooks from './pages/Listedbooks';
+import PagesToRead from './pages/PagesToRead';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/listedbooks",
+        element: <Listedbooks></Listedbooks>,
+      },
+      {
+        path: "/pagestoread",
+        element: <PagesToRead></PagesToRead>,
+      },
+    ],
   },
 ]);
 
