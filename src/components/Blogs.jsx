@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import Blog from '../components/Blog';
+import Blog from './Blog';
+import PagesToRead from "../pages/PagesToRead";
 
 const Blogs = () => {
 	const[blogs, setBlogs] = useState([]);
 
 	useEffect(()=>{
-        fetch('blogs.json')
+        fetch('./blogs.json')
         .then(res => res.json())
         .then(data => setBlogs(data))
     },[])

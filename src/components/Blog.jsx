@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
+import { LuStar } from "react-icons/lu";
 
 const Blog = ({blog}) => {
     const{bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing} = blog;
-
     return (
-        
-        <div className="border border-primary rounded-2xl p-4 m-2 ">
+        <div className="border rounded-2xl p-4 m-2 hover:scale-105 border-opacity-30 border-primary hover:border-secondary  ">
 
             <Link to={`/blog/${blog.bookId}`} className="max-w-sm mx-auto dark:bg-gray-50">
                 <img role="presentation" className="object-cover w-full rounded h-screen  dark:bg-gray-500" src={image} />
@@ -22,7 +21,10 @@ const Blog = ({blog}) => {
 
                     <div className="flex justify-between text-lg">
                         <span>{category}</span>
-                        <span>{rating}</span>
+                        <div className="flex items-center gap-2">
+                            <span>{rating}</span>
+                            <LuStar />
+                        </div>
                     </div>
                 </div>
             </Link>
